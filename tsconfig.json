@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ES6",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "removeComments": true,
+        "outDir": "temp",
+        "watch": true,
+        "sourceMap": true
+    },
+    "include": ["src/**/*"],
+}

@@ -1,0 +1,19 @@
+{
+  "name": "vtsg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack -w"
+  },
+  "keywords": [],
+  "author": "SimonFJ20",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^8.0.15",
+    "typescript": "^4.1.3",
+    "webpack": "^5.20.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
