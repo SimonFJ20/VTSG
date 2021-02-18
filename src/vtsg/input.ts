@@ -6,7 +6,7 @@
 *       Pathname:   vtsg/input.ts
 *       Content:    Primary file for Keyboard and Mouse input
 *
-*       License:    MIT
+*       License:    MIT License
 *
 *       Author:     Simon From Jakobsen
 *       Email:      simonfromjakobsen@gmail.com
@@ -37,7 +37,7 @@ export class KeyInput {
     // contains last key pressed as KeyEvent.key
     public static key: string;
 
-    // contains las key pressed as KeyEvent.key if length is 1
+    // contains las key pressed if key length is 1
     // fx 'a', '1', '*', and not 'Space', 'RightArrow'
     public static char: string;
 
@@ -122,7 +122,7 @@ export class KeyInput {
         if (e.defaultPrevented) {
 
             // this can be used for testing purposses
-            //console.log('Prevented default when key', e.key, 'was presses!');
+            //console.log('Default Prevented when key', e.key, 'was released!');
 
             return;
 
@@ -143,31 +143,90 @@ export class KeyInput {
     }
 
 
-
+    // used to check if key has been hit
+    // and if it is ready to read
     public static keyAvailable = (): boolean => {
+        
+        // if buffer is empty, no key has been pressed
         if (KeyInput.key !== '') {
+            
+            
+            // a new key has been hit
             return true;
+            
+            
+        // if KeyInput.key is empty
         } else {
+            
+            
+            // no key has been hit
             return false;
+            
+            
         }
+        
+        
     }
-
+    
+    
+    // check if a key that is a char has been hit
+    // and if it is ready to read
     public static charAvailable = (): boolean => {
+        
+        // if buffer is empty no key that is a char was hit
         if (KeyInput.char !== '') {
+            
+            
+            // a new key has been hit, and the key is a char
             return true;
+            
+            
+        // if KeyInput.char is empty
         } else {
+            
+            
+            // no new key that is a char has been hit
             return false;
+            
+            
         }
+        
+        
     }
-
+    
+    
+    // checks if key is available
+    // returns key as string if available
+    // clears the key buffer
     public static getKey = (): string => {
+        
+        // returns true if new key has been pressed
         if (KeyInput.keyAvailable()) {
-            let key = KeyInput.key;
+            
+            
+            // initializes new variable to store key
+            const key: string = KeyInput.key;
+            
+            
+            // clears key buffer
             KeyInput.key = '';
+            
+            
+            // returns key as string
             return key;
+            
+        
+        // if no char is available
         } else {
+            
+            
+            // return empty string, if no new key has been pressed
             return '';
+            
+            
         }
+        
+        
     }
 
     public static getChar = (): string => {

@@ -6,7 +6,7 @@
 *       Pathname:   vtsg/vtsg.ts
 *       Content:    Primary file for VTSG
 *
-*       License:    MIT
+*       License:    MIT License
 *
 *       Author:     Simon From Jakobsen
 *       Email:      simonfromjakobsen@gmail.com

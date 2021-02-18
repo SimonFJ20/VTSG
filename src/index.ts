@@ -6,7 +6,7 @@
 *       Pathname:   ./index.ts
 *       Content:    Main entry point for game
 *
-*       License:    MIT
+*       License:    MIT License
 *
 *       Author:     Simon From Jakobsen
 *       Email:      simonfromjakobsen@gmail.com
