@@ -1,5 +1,5 @@
 # VTSG
-My attempt at creating a simple-to-use 2d game engine to make 2d games to run in a brower
+My attempt at creating a simple-to-use 2d game engine to make 2d games to run in a browser.
 
 ## Introduction
 My goal with this game engine is to accomplish something that most other cant. It is to be able create 2d games at all sizes. Tools like Unity are can create much bigger and and better games, but it takes 2-3 months to learn. MIT Scratch on the other hand takes 1 minute to learn, but is so simple it is hard to create proper projects with it without working against it.
