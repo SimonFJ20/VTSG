@@ -15,7 +15,7 @@ I acknoledge the competition. P5js for example is a great tool to create games i
 4. Type `npm run dev` and keep the Console open
 5. Open File Explorer and navigate to the root folder, then the `dist` folder
 6. Open `index.html` with a web browser like Chrome, FireFox, Safari, Opera or Edge. I do **NOT** recommend Internet Explorer as some JavaScript is unsupported.
-7. To open Developer Tools. On Chrome, FireFox, Opera and Edge press `Ctrl + Shift + I` or press `F12`, or `Fn + F12` depending on your keyboard configuration. (`F12` doesn't work on Opera). On Safari press `Option + ⌘ + J`.
+7. To open Developer Tools. On Chrome, FireFox, Opera and Edge press `Ctrl + Shift + I` or `F12`, or `Fn + F12` depending on your keyboard configuration. (`F12` doesn't work on Opera). On Safari press `Option + ⌘ + J`.
 8. Start creating with help of the Guide and Reference! (Guide and Reference not yet created, sorry)
 
 ### To Run/Export a Project
