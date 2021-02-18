@@ -7,6 +7,13 @@ My goal with VTSG is a game engine that is simple enough to take a few hours to 
 
 I acknowledge the competition. P5js for example is a great tool to create games in JavaScript for browers, but P5js is mostly about drawing and simplifying. VTSG hopes to handle all things with a component based design. Maybe someday will VTSG use P5js, idk.
 
+## Reqirements for Developers
+* You have to have some experience with JavaScript, though you don't have to be an expert if you follow the Guide, use the Reference or use Google when you get stuck. (Guide and Reference not yet created, sorry)
+* You should know the basics of TypeScript and working with types, though it is not hard to learn.
+* You should know the very basics of how to work modules, though also very easy.
+* If you haven't ever tried game designing, try out [MIT Scratch](https://scratch.mit.edu/projects/editor/).
+* If you know JavaScript, but not TypeScript read the [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
 ## Instructions
 ### To Develop a Project
 1. If not already, install NodeJS, so you can use `npm` in a Console. (If installed but not working, add it to PATH, google it)
