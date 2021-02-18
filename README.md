@@ -35,4 +35,5 @@ Simon From Jakobsen|[SimonFJ20](http://github.com/SimonFJ20)|Creater, Maintainer
 - [ ] ↳ Rewrite `engine/keyInput.ts` and `engine/mouseInput.ts` to `vtsg/input.ts`.
 
 ## Who can contribute?
-I want every one who wants, to be able to contribute. I will not stand in the way for anyone who wants to help, but keep in mind I am new to maintaining, so please cut me some slack. 
+I want every one who wants, to be able to contribute. I will not stand in the way for anyone who wants to help, but keep in mind I am new to maintaining, so please cut me some slack.
+If you have any questions, contact me
