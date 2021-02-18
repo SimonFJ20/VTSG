@@ -229,29 +229,119 @@ export class KeyInput {
         
     }
 
+    // checks if key is available and char
+    // returns key as string if available
+    // clears the key char buffer
     public static getChar = (): string => {
+        
+        // returns true if new key that is char has been pressed
         if (KeyInput.charAvailable()) {
+            
+            
+            // initializes new variable to store key
             let char = KeyInput.char;
+            
+            
+            // clears char buffer
             KeyInput.char = '';
+            
+            
+            // returns key as string with length of 1
             return char;
+            
+            
+        // if no char is available
         } else {
+            
+            
+            // return empty string, if no new key has been pressed
             return '';
+            
+            
         }
+        
+        
     }
+    
+    
+    
 
 }
 
-// can be used elsewhere to get string of multible key strokes
+
+
+// example to get string of multible key strokes
+// string is a variable with type string
+// this assumes the code is in a loop
 /*
+
+// checks if key is available
 if(KeyInput.keyAvailable()) {
+    
+    
+    // checks if available key is a char
     if(KeyInput.charAvailable()) {
+        
+        
+        // push char to variable of type string
         string += KeyInput.getChar();
+        
+        
+    // if available key is not a char
     }else{
+        
+        
+        // checks if key pressed is the 'Enter' key
         if(KeyInput.getKey() === 'Enter') {
+            
+            
+            // logs full string to console
+            // this can be replace by your code to handle the string
             console.log(string);
+            
+            
+            // resets the string, to be ready to read a new string again
             string = '';
+            
+            
         }
+        
+        
     }
+    
 
 }
+
 */
+
+
+
+// abstraction for MouseEvent, to make it simpler to use
+// converts mouse button number to objects
+enum MouseButton {
+    
+    // left mouse button
+    left = 0,
+    
+    // middle mouse button / mouse wheel button
+    middle = 1,
+    
+    // right mouse button
+    right = 2
+    
+}
+
+
+// abstraction to make MouseEvent easier to use
+// converts standart mouse wheel movement numbers to objects
+enum MouseWheel {
+    
+    // scroll up on mouse wheel
+    up = -3,
+    
+    // scroll down on mouse wheel
+    down = 3
+    
+}
+
+
