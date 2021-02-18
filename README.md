@@ -25,6 +25,6 @@ I acknoledge the competition. P5js for example is a great tool to create games i
 4. **Optional:** run `npm run build` in the root folder to make sure everything is compiled to the newest version.
 
 ## Contributers
-Maintainer|GitHub|Email|Role
+Maintainer|GitHub|Role|Email|LinkedIn
 ----------|------|-----|----
-Simon From Jakobsen|[SimonFJ20](http://github.com/SimonFJ20)|simonfromjakobsen@gmail.com|Creater, Maintainer
+Simon From Jakobsen|[SimonFJ20](http://github.com/SimonFJ20)|Creater, Maintainer|simonfromjakobsen@gmail.com|[LinkedIn](https://www.linkedin.com/in/simon-from-jakobsen-95b3a81ba/)
