@@ -24,8 +24,7 @@
 */
 
 // keyboard input class
-// class is mostly static, because most use 
-//      cases doesn't/shouldn't need more than one instance
+// class is mostly static, because most use cases doesn't/shouldn't need more than one instance
 // uses keyCode wich is deprecated
 // uses the window not the canvas
 export class KeyInput {
