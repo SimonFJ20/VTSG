@@ -26,5 +26,5 @@ I acknoledge the competition. P5js for example is a great tool to create games i
 
 ## Contributers
 Maintainer|GitHub|Role|Email|LinkedIn
-----------|------|-----|----
+----------|------|-----|-------|-----
 Simon From Jakobsen|[SimonFJ20](http://github.com/SimonFJ20)|Creater, Maintainer|simonfromjakobsen@gmail.com|[LinkedIn](https://www.linkedin.com/in/simon-from-jakobsen-95b3a81ba/)
