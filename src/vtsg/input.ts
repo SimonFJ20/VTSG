@@ -473,7 +473,9 @@ class MouseInput {
 
         
         
-        // 3rd boolen argument is not set here, i dont know if it is necesssary 
+        // 3rd boolen argument is not set here, i dont know if it is necesssary
+        // handlers does not prevent default for now, since duplicates doesn't really matter
+        // TODO prevent default and test the difference
         
         // events related to moving the mouse
         window.addEventListener('mousemove', MouseInput.moveEvent);
@@ -494,49 +496,126 @@ class MouseInput {
     
     
     
-    // handling mouse move events
+    // handle mouse move events
     // translates real screen position to the virtual space
     private static moveEvent = (e: MouseEvent): void => {
-        MouseInput.position.x = ((e.x * MouseInput.render.dimensions.width) 
-            / MouseInput.render.htmlDimensions.width);
-        MouseInput.position.y = ((e.y * MouseInput.render.dimensions.height) 
-            / MouseInput.render.htmlDimensions.height);
+        
+        
+        
+        // translates real horizontal position to virtual horizontal position
+        MouseInput.position.x = (e.x * MouseInput.render.dimensions.width) 
+            / MouseInput.render.htmlDimensions.width;
+            
+        // translates real vertical position to virtual vertical position
+        MouseInput.position.y = (e.y * MouseInput.render.dimensions.height) 
+            / MouseInput.render.htmlDimensions.height;
+            
+            
+            
     }
 
+    
+    
+    // handle MouseEvent when mouse button is pressed
+    // activates press and starts click
     private static pressEvent = (e: MouseEvent): void => {
+        
+        
+        
+        // run through wich mouse button is pressed
+        // using switch for effeciency
+        // TODO change numbers to MouseButton enums
         switch(e.button) {
+            
+            // if left mouse button has been pressed
             case 0:
+                
                 MouseInput.leftDown = true;
+                
                 break;
+                
+            // if mouse wheel button has been pressed
             case 1:
+                
                 MouseInput.middleDown = true;
+                
                 break;
+                
+            // if right mouse button has been pressed
             case 2:
+                
                 MouseInput.rightDown = true;
+                
                 break;
+                
         }
+        
+        
+        
+        // immidiatly activate when button is pressed
         MouseInput.pressedButton = e.button;
+        
+        // store position 
         MouseInput.pressedPosition = MouseInput.position;
 
+        
+        
+        // start new click when button is pressed
         MouseInput.clickActive = true;
+        
+        // store which button is pressed
         MouseInput.clickedButton = e.button;
+        
+        // store position where pressed when pressed
+        // TODO copy Position class not Position variables if possible
         MouseInput.clickedPressPosition.x = MouseInput.position.x;
         MouseInput.clickedPressPosition.y = MouseInput.position.y;
+        
+        
+        
     }
-
+    
+    
+    
+    // handle MouseEvent when mouse button is released
     private static releaseEvent = (e: MouseEvent): void => {
+        
+        
+        
+        // run through wich mouse button is released
+        // using switch for effeciency
         switch(e.button) {
+            
+            // if left button has been released
             case MouseButton.left:
+                
                 MouseInput.leftDown = false;
+                
                 break;
+                
+            // if mouse wheel button has been released
             case MouseButton.middle:
+                
                 MouseInput.middleDown = false;
+                
                 break;
+                
+            // if left button has been released
             case MouseButton.right:
+                
                 MouseInput.rightDown = false;
+                
                 break;
+                
         }
+        
+        
+        
+        // intended to make click more reliable
+        // this is not used, and can/should probably be removed
         MouseInput.canPress[e.button] = true;
+        
+        // checks if the right button has been released when click is active
         if(e.button === MouseInput.clickedButton && MouseInput.clickActive) {
             MouseInput.clickedReleasePosition.x = MouseInput.position.x;
             MouseInput.clickedReleasePosition.y = MouseInput.position.y;
