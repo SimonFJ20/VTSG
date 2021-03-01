@@ -13,7 +13,7 @@
 *       GitHub:     SimonFJ20
 *
 *       Created:    17-02-2021
-*       Last Edit:  17-02-2021
+*       Last Edit:  01-03-2021
 */
 
 
@@ -578,6 +578,7 @@ class MouseInput {
     
     
     // handle MouseEvent when mouse button is released
+    // default is NOT prevented as it is not strictly necessary, but should be added
     private static releaseEvent = (e: MouseEvent): void => {
         
         
@@ -610,99 +611,203 @@ class MouseInput {
         }
         
         
-        
         // intended to make click more reliable
         // this is not used, and can/should probably be removed
         MouseInput.canPress[e.button] = true;
         
+        
         // checks if the right button has been released when click is active
         if(e.button === MouseInput.clickedButton && MouseInput.clickActive) {
+            
+            
+            // updates position of mouse when released
             MouseInput.clickedReleasePosition.x = MouseInput.position.x;
             MouseInput.clickedReleasePosition.y = MouseInput.position.y;
+            
+            // indicate that click has happened
             MouseInput.hasClicked = true;
+            
+            // reset click
             MouseInput.clickActive = false;
+            
+            
         }
+        
+        
+        
     }
 
+    
+    
+    // disables the opening of contextmenu when right mouse button is pressed
     private static contextMenuEvent = (e: MouseEvent): void => {
+        
+        // probably not necessary
         e.preventDefault();
+        
     }
 
+    
+    
+    // handles all mouse wheel events
     private static wheelEvent = (e: WheelEvent): void => {
+        
+        // indicate scrolled has happened and direction
         MouseInput.scrollDirection = e.deltaY;
         MouseInput.hasScrolled = true;
+        
+        
     }
-
+    
+    
+    // checks if a specific mouse button is pressed
     public static isDown = (button: MouseButton) => {
+        
+        // runs through user input
+        // returns boolean of the specified mouse button
         switch(button) {
+            
             case MouseButton.left:
+                
                 return MouseInput.leftDown;
+                
+            
             case MouseButton.middle:
+                
                 return MouseInput.middleDown;
+                
+                
             case MouseButton.right:
+                
                 return MouseInput.rightDown;
+                
         }
+        
+        
     }
 
+    
+    
+    // used to find out if the mouse cursor is inside a specified rectangle area
+    // takes the position, width and height of the rectangle area
+    // TODO take rectangle as arg instead
     public static checkMouseOnRect = (position: Position, areaWidth: number, 
         areaHeight: number): boolean => {
+            
+        // returns if mouse is inside rectangle area
         if(MouseInput.position.x > position.x 
             && MouseInput.position.x < position.x + areaWidth 
             && MouseInput.position.y > position.y 
             && MouseInput.position.y < position.y + areaHeight) {
+                
             return true;
+            
         }else{
+            
             return false;
+            
         }
+        
+        
     }
 
+    
+    
+    // used get information about a specific button press action 
+    //  of the mouse on a specified area
     public static pressed = (button: MouseButton, position: Position, areaWidth: number, 
         areaHeight: number): boolean => {
+            
+        // checks if the specified mouse button is pressed and if it can be pressed
         if(MouseInput.isDown(button)
         && MouseInput.canPress[button]
         && button === MouseInput.pressedButton 
+        
+        // checks if the mouse cursor is inside the specified area
         && MouseInput.pressedPosition.x > position.x 
         && MouseInput.pressedPosition.x < position.x + areaWidth 
         && MouseInput.pressedPosition.y > position.y 
         && MouseInput.pressedPosition.y < position.y + areaHeight) {
+            
+            // sets state of button to be reset
             MouseInput.canPress[button] = false;
+            
+            // press has happened at the desired location
             return true;
+            
         }else{
+            
             return false;
+            
         }
+        
+        
     }
     
+    
+    
+    // used get information about a specific button click action 
+    //  of the mouse on a specified area
     public static clicked = (button: MouseButton, position: Position, areaWidth: number, areaHeight: number): boolean => {
+        
+        
+        // if the right butten has been clicked
         if(MouseInput.hasClicked
         && MouseInput.clickedButton === button
+        
+        // if press action was inside specified area
         && MouseInput.clickedPressPosition.x > position.x 
         && MouseInput.clickedPressPosition.x < position.x + areaWidth
-        
         && MouseInput.clickedPressPosition.y > position.y 
         && MouseInput.clickedPressPosition.y < position.y + areaHeight
         
+        // if release action was inside specified area
         && MouseInput.clickedReleasePosition.x > position.x 
         && MouseInput.clickedReleasePosition.x < position.x + areaWidth
-        
         && MouseInput.clickedReleasePosition.y > position.y 
         && MouseInput.clickedReleasePosition.y < position.y + areaHeight) {
             
-            console.log(MouseInput.clickedPressPosition, MouseInput.clickedReleasePosition)
+            // for debugging purposses optionally use
+            //console.log(MouseInput.clickedPressPosition, MouseInput.clickedReleasePosition)
+            
+            // resets click action
             MouseInput.hasClicked = false;
+            
+            // click action happened in specified area
             return true;
+            
         }else{
+            
             return false;
+            
         }
+        
+        
     }
 
+    
+    
+    // used get information about mouse wheel action a specified direction
     public static scrolled = (direction: MouseWheel): boolean => {
+        
+        // checks if scrolled in the right direction
         if(MouseInput.hasScrolled && MouseInput.scrollDirection === direction) {
+            
+            // resets scroll
             MouseInput.hasScrolled = false;
+            
+            // mouse has scrolled the specified direction
             return true;
+            
         }else{
+            
             return false;
+            
         }
+        
+        
     }
+    
 
 }
 
