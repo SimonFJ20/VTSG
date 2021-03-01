@@ -16,6 +16,9 @@
 *       Last Edit:   17-02-2021
 */
 
+import { main } from "./game";
+import { Game } from "./vtsg/vtsg";
+
 
 // <div> target for game
 let targetDiv; HTMLDivElement;
@@ -26,7 +29,7 @@ let gameCanvas: HTMLCanvasElement;
 
 
 // main entry point function for program
-const main = (): void => {
+const index = (): void => {
 
     // check if <div> with id "VTSG" exist, if not inform user
     if(document.getElementById('VTSG') === null) {
@@ -42,7 +45,7 @@ const main = (): void => {
 
     }
 
-
+/* 
     // assigns pointer
     // casting to remove potential null type
     targetDiv = <HTMLDivElement>document.getElementById('VTSG');
@@ -58,14 +61,20 @@ const main = (): void => {
 
     // adds canvas to targetDiv
     targetDiv.appendChild(gameCanvas);
+ */
 
+
+    // initialize game
+    let game = new Game('VTSG');
+
+    main(game);
 
 }
 
 
 
 // fires when <script> loads
-window.onload = main;
+window.onload = index;
 
 
 

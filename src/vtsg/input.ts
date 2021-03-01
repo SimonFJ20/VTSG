@@ -16,6 +16,9 @@
 *       Last Edit:  01-03-2021
 */
 
+import { Position } from "./objects";
+import { Render } from "./render";
+
 
 /*
 *   TODO:
@@ -354,7 +357,7 @@ enum MouseWheel {
 // class is mostly static, because most use cases doesn't/shouldn't need more than one instance
 // uses the window not the canvas for the listeners
 // disables the context menu
-class MouseInput {
+export class MouseInput {
 
     
     // render is used to get dimensions and position of the mouse cursor on the screen
