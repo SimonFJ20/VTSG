@@ -13,7 +13,7 @@
 *       GitHub:     SimonFJ20
 *
 *       Created:    17-02-2021
-*       Last Edit:   17-02-2021
+*       Last Edit:  01-03-2021
 */
 
 import { main } from "./game";
@@ -67,6 +67,7 @@ const index = (): void => {
     // initialize game
     let game = new Game('VTSG');
 
+    // run main in game.ts
     main(game);
 
 }

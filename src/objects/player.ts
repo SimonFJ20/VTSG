@@ -5,7 +5,6 @@ import { Render } from "../vtsg/render";
 import { GameObject } from "../vtsg/vtsg";
 
 
-
 export class Player extends GameObject {
 
     public position: Position;
